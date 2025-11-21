@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agilitz — LitzSuite</title>
+<style>
+:root{--navy:#0b1a2b;--muted:#556174;--accent:#0f62fe;--accent-yellow:#f7b500;--card:#fff}
+body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:linear-gradient(135deg,#e6fbf7 0%,#f0fbff 40%,#fff6e6 100%);color:var(--navy)}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,#02112e,#075bd9);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:700}
+.hero{position:relative;border-radius:8px;overflow:hidden}
+.hero img{width:100%;height:420px;object-fit:cover;display:block}
+.hero-overlay{position:absolute;inset:0;background:rgba(255,255,255,0.12)}
+.hero-text{position:absolute;top:48px;left:48px;color:var(--navy);max-width:650px;font-weight:800;font-size:28px;line-height:1.05}
+.hero-sub{margin-top:12px;color:var(--navy);opacity:0.9;font-size:15px;font-weight:500}
+.hero-cta{margin-top:18px;display:flex;gap:12px}
+.btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 22px rgba(11,94,215,0.12)}
+.btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(11,94,215,0.12)}
+.partner{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px;align-items:start}
+.partner-left{font-weight:900;font-size:36px;line-height:0.98;color:var(--navy)}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.96),rgba(255,255,255,0.9));padding:18px;border-radius:12px;box-shadow:0 12px 30px rgba(11,34,60,0.06);color:var(--muted);font-size:15px}
+.impact{margin-top:26px}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
+.impact-card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 20px rgba(11,22,60,0.03);text-align:center}
+.ceo-section{display:flex;gap:20px;align-items:center;justify-content:center;padding:40px 20px}
+.ceo-img{width:160px;height:160px;object-fit:cover;border-radius:14px;box-shadow:0 5px 18px rgba(0,0,0,0.12)}
+.ceo-text{max-width:700px}
+.super{margin-top:32px}
+.super-head h2{margin:0}
+.super-sub{color:var(--muted);margin-top:6px}
+.products-wrap{margin-top:16px}
+.product-tabs{display:flex;gap:12px;overflow:auto;padding:12px 6px;border-radius:12px}
+.tab{flex:0 0 auto;padding:10px 14px;border-radius:10px;background:#f7fbff;border:1px solid #e6eef5;cursor:pointer;font-weight:700;white-space:nowrap}
+.tab.active{background:linear-gradient(90deg,var(--accent),var(--accent-yellow));color:#fff;box-shadow:0 8px 20px rgba(11,94,215,0.12);border:none}
+.product-info{margin-top:18px;background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 20px rgba(11,22,60,0.04)}
+.utilities{margin-top:28px}
+.utilities .product-tabs{display:flex;gap:12px;overflow:auto;padding:12px 6px;border-radius:12px}
+.util{flex:0 0 auto;padding:10px 14px;border-radius:10px;background:#fff;border:1px solid #e6eef5;cursor:pointer;font-weight:700;white-space:nowrap}
+.util.active{border-color:rgba(7,103,179,0.12);box-shadow:0 10px 26px rgba(7,103,179,0.06)}
+.cta-section{margin-top:32px;text-align:center;background:#e8faff;padding:40px 20px;border-radius:12px}
+.videos{padding:36px 20px;text-align:center}
+.video-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.video-card{width:300px;height:170px;background:#e9f6ff;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.footer-img img{width:100%;display:block;margin-top:32px;border-radius:6px}
+@media(max-width:1000px){.partner{grid-template-columns:1fr}.impact-grid{grid-template-columns:repeat(2,1fr)}.product-tabs{padding:8px}.hero-text{font-size:20px;left:20px;top:24px}}
+@media(max-width:640px){.impact-grid{grid-template-columns:1fr}.product-tabs{gap:8px;padding:8px}.product-info{padding:14px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="brand"><div class="logo">A</div><div><div style="font-weight:800">Agilitz</div><div style="font-size:13px;color:var(--muted)">LitzSuite — AI for Dynamics 365</div></div></div>
+    <nav class="nav"><a href="#products">Products</a><a href="#utilities">Utilities</a><a href="#videos">Videos</a></nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="hero">
+    <img src="banner.jpg" alt="Banner">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-text">
+      Enhance productivity and streamline operations with smart, scalable, and AI-powered products built for Dynamics 365.
+      <div class="hero-sub">Our expertise helps us build intelligent solutions for real business needs.</div>
+      <div class="hero-cta" style="margin-top:12px">
+        <a class="btn" href="#products">Explore Products</a>
+        <a class="btn secondary" href="Presentation3.pptx" download>Download PPT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner -->
+  <section class="partner" id="partner">
+    <div class="partner-left">
+      Your Partner in<br>Accelerating<br>BizApps<br>Transformation
+    </div>
+    <div class="partner-right">
+      <div class="card">
+        Agilitz is building a powerful suite of products to extend and enhance the BizApps Platform—shaped by real-world insights from working with customers across the globe. Designed to solve everyday operational challenges, our solutions empower organizations to innovate faster, stay resilient, and accelerate their path to business success. As your strategic partner, we're here to turn complexity into opportunity.
+        <p style="margin-top:10px">With Litz Suite—our dedicated suite of AI-powered products—backed by a focused product team committed to continuous innovation, quality, and customer-centric enhancements, we ensure our solutions evolve with your business needs today and in the future.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact -->
+  <section class="impact" aria-labelledby="impact-heading">
+    <h2 id="impact-heading">Where our product makes an impact</h2>
+    <p style="color:var(--muted)">Use cases showing where LitzSuite delivers the most value.</p>
+    <div class="impact-grid" role="list">
+      <div class="impact-card"><div style="font-size:28px">💼</div><h4>Sales</h4><div style="color:var(--muted)">Faster proposal assembly, document management, and intelligent sales content discovery.</div></div>
+      <div class="impact-card"><div style="font-size:28px">🧭</div><h4>Field</h4><div style="color:var(--muted)">Offline-ready files, quick access to manuals and images, and faster case closure on site.</div></div>
+      <div class="impact-card"><div style="font-size:28px">🤝</div><h4>Customer Service</h4><div style="color:var(--muted)">Contextual documents and images surfaced in records to reduce resolution time.</div></div>
+      <div class="impact-card"><div style="font-size:28px">🏭</div><h4>Finance & Ops</h4><div style="color:var(--muted)">Secure document retention, audit-ready storage, and automated invoice & file processing.</div></div>
+    </div>
+  </section>
+
+  <!-- CEO -->
+  <section class="ceo-section" id="ceo">
+    <img src="ceo.png" alt="CEO" class="ceo-img">
+    <div class="ceo-text">
+      <h3>Message from Our CEO</h3>
+      <p>At Agilitz, we’re committed to redefining how businesses innovate and operate. With the LitzSuite ecosystem, we’re building intelligent, scalable products that seamlessly extend the capabilities of Dynamics 365—turning everyday challenges into opportunities for growth. Our mission is simple: empower organizations with smarter, faster, and future-ready solutions that elevate productivity and transform the way work gets done.</p>
+    </div>
+  </section>
+
+  <!-- Products horizontal -->
+  <section class="super" id="products">
+    <div class="super-head"><h2>Supercharge Dynamics 365 with the LitzSuite ecosystem</h2><div class="super-sub">Our products fill functional gaps, simplify complex tasks, and elevate productivity across the system.</div></div>
+
+    <div class="products-wrap">
+      <div class="product-tabs" id="productTabs" role="tablist" aria-label="Products">
+        <div class="tab active" data-key="doculitz" role="tab" tabindex="0">DocuLitz</div>
+        <div class="tab" data-key="imagelitz" role="tab" tabindex="0">ImageLitz</div>
+        <div class="tab" data-key="litzfilesync" role="tab" tabindex="0">LitzFileSync</div>
+        <div class="tab" data-key="litzcore" role="tab" tabindex="0">LitzSuite Core</div>
+      </div>
+
+      <div class="product-info" id="productInfo" aria-live="polite">
+        <h3 id="p-title">DocuLitz</h3>
+        <p id="p-desc">DocuLitz is an AI-driven document management solution built natively on Microsoft Dynamics 365 CE. It automates organization, tagging and retrieval across CRM records. Features include AI auto-tagging, centralized Azure Blob storage, quick search, and enterprise-grade security.</p>
+        <div style="margin-top:12px"><a class="btn" href="#">Learn More</a> <a class="btn secondary" href="Presentation3.pptx" download>Download PPT</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Utilities horizontal (same style) -->
+  <section class="utilities" id="utilities">
+    <h3 style="margin-top:18px">Utilities</h3>
+    <div class="product-tabs" id="utilTabs" role="tablist" aria-label="Utilities">
+      <div class="util active" data-util="u1" tabindex="0">Auto-Tagging</div>
+      <div class="util" data-util="u2" tabindex="0">Search Index</div>
+      <div class="util" data-util="u3" tabindex="0">Blob Storage</div>
+      <div class="util" data-util="u4" tabindex="0">Sync Engine</div>
+    </div>
+
+    <div class="product-info" id="utilInfo" aria-live="polite">
+      <h3 id="u-title">Auto-Tagging</h3>
+      <p id="u-desc">AI-driven metadata extraction automatically tags documents on upload—improving searchability and saving time for users.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Transform your Dynamics 365 experience today</h2>
+    <p>Upgrade your workflows with smart, AI-powered Agilitz add-ons.</p>
+  </section>
+
+  <!-- Videos -->
+  <section class="videos" id="videos">
+    <h3>Recent Videos — Use Cases & Demos</h3>
+    <div class="video-grid">
+      <div class="video-card">DocuLitz — Auto-tagging demo</div>
+      <div class="video-card">ImageLitz — Search walkthrough</div>
+      <div class="video-card">LitzFileSync — Sync demo</div>
+    </div>
+  </section>
+
+  <!-- Footer image -->
+  <div class="footer-img"><img src="footer.png" alt="Footer"></div>
+
+  <footer style="padding:20px;text-align:center;color:var(--muted)">&copy; Agilitz — LitzSuite</footer>
+</div>
+
+<script>
+// Products data and interactions
+const products = {
+  doculitz:{title:'DocuLitz',desc:'DocuLitz is an AI-driven document management solution built natively on Microsoft Dynamics 365 CE. It automates organization, tagging and retrieval across CRM records. Features include AI auto-tagging, centralized Azure Blob storage, quick search, and enterprise-grade security.'},
+  imagelitz:{title:'ImageLitz',desc:'ImageLitz provides AI-powered image ingestion, auto-tagging and cross-record search. Turn visuals into searchable, actionable data directly inside Dynamics 365.'},
+  litzfilesync:{title:'LitzFileSync',desc:'LitzFileSync ensures fast, secure file synchronization and version control for CRM documents, keeping records clean and compliant while files stay up-to-date.'},
+  litzcore:{title:'LitzSuite Core',desc:'LitzSuite Core offers shared services, authentication, telemetry and admin utilities that power the LitzSuite ecosystem and simplify deployment and management.'}
+};
+const tabs = document.querySelectorAll('#productTabs .tab');
+const pTitle = document.getElementById('p-title');
+const pDesc = document.getElementById('p-desc');
+tabs.forEach(t=>{
+  t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    const key = t.dataset.key;
+    pTitle.textContent = products[key].title;
+    pDesc.textContent = products[key].desc;
+    // scroll to product info on small screens
+    document.getElementById('productInfo').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  t.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' ') t.click(); });
+});
+
+// Utilities
+const utils = {
+  u1:{title:'Auto-Tagging',desc:'AI-driven metadata extraction automatically tags documents on upload—improving searchability and saving time for users.'},
+  u2:{title:'Search Index',desc:'Unified, contextual search across documents, images and CRM records.'},
+  u3:{title:'Blob Storage',desc:'Azure Blob integration for secure, scalable, and cost-efficient storage.'},
+  u4:{title:'Sync Engine',desc:'Robust sync engine to keep files consistent across systems and devices.'}
+};
+const utilEls = document.querySelectorAll('#utilTabs .util');
+const uTitle = document.getElementById('u-title');
+const uDesc = document.getElementById('u-desc');
+utilEls.forEach(el=>{
+  el.addEventListener('click',()=>{
+    utilEls.forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+    const key = el.dataset.util;
+    uTitle.textContent = utils[key].title;
+    uDesc.textContent = utils[key].desc;
+    document.getElementById('utilInfo').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  el.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' ') el.click(); });
+});
+</script>
+</body>
+</html>
