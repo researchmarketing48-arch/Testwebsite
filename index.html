@@ -48,6 +48,19 @@ body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, A
 .footer-img img{width:100%;display:block;margin-top:32px;border-radius:6px}
 @media(max-width:1000px){.partner{grid-template-columns:1fr}.impact-grid{grid-template-columns:repeat(2,1fr)}.product-tabs{padding:8px}.hero-text{font-size:20px;left:20px;top:24px}}
 @media(max-width:640px){.impact-grid{grid-template-columns:1fr}.product-tabs{gap:8px;padding:8px}.product-info{padding:14px}}
+
+/* NEW: two-column products layout */
+.products-wrap.two-col {display: grid; grid-template-columns: 420px 1fr; gap: 28px; align-items:start;}
+.product-info-box {position: sticky; top: 28px; height: fit-content; padding:20px}
+.product-grid {display:grid; grid-template-columns: repeat(2,1fr); gap:18px}
+.product-tile {background: linear-gradient(180deg,#fff,#fbfdff); border-radius:12px; padding:18px; box-shadow:0 8px 20px rgba(11,22,60,0.04); cursor:pointer; display:flex; flex-direction:column; justify-content:space-between; min-height:120px; transition: transform .18s, box-shadow .18s}
+.product-tile:hover{transform:translateY(-6px); box-shadow:0 16px 36px rgba(11,22,60,0.08)}
+.product-tile.active{border:2px solid rgba(15,98,254,0.14); box-shadow:0 18px 40px rgba(15,98,254,0.08)}
+.tile-number{font-weight:800;font-size:28px;color:var(--accent)}
+.tile-title{font-weight:800;margin-top:6px}
+.tile-sub{color:var(--muted);font-size:13px;margin-top:8px}
+@media (max-width:980px){.products-wrap.two-col{grid-template-columns:1fr}.product-info-box{position:static}.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.product-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -105,23 +118,46 @@ body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, A
     </div>
   </section>
 
-  <!-- Products horizontal -->
+  <!-- Products: NEW two-column layout -->
   <section class="super" id="products">
     <div class="super-head"><h2>Supercharge Dynamics 365 with the LitzSuite ecosystem</h2><div class="super-sub">Our products fill functional gaps, simplify complex tasks, and elevate productivity across the system.</div></div>
 
-    <div class="products-wrap">
-      <div class="product-tabs" id="productTabs" role="tablist" aria-label="Products">
-        <div class="tab active" data-key="doculitz" role="tab" tabindex="0">DocuLitz</div>
-        <div class="tab" data-key="imagelitz" role="tab" tabindex="0">ImageLitz</div>
-        <div class="tab" data-key="litzfilesync" role="tab" tabindex="0">LitzFileSync</div>
-        <div class="tab" data-key="litzcore" role="tab" tabindex="0">LitzSuite Core</div>
-      </div>
-
-      <div class="product-info" id="productInfo" aria-live="polite">
+    <div class="products-wrap two-col">
+      <!-- LEFT: product info box -->
+      <div class="product-info-box card" id="productInfoBox" aria-live="polite">
         <h3 id="p-title">DocuLitz</h3>
         <p id="p-desc">DocuLitz is an AI-driven document management solution built natively on Microsoft Dynamics 365 CE. It automates organization, tagging and retrieval across CRM records. Features include AI auto-tagging, centralized Azure Blob storage, quick search, and enterprise-grade security.</p>
-        <div style="margin-top:12px"><a class="btn" href="doculitz (2).html">Learn More</a>
- <a class="btn secondary" href="Presentation3.pptx" download>Book your Demo</a></div>
+        <div style="margin-top:12px">
+          <a class="btn" id="learnMoreBtn" href="doculitz (2).html">Learn More</a>
+          <a class="btn secondary" href="Presentation3.pptx" download>Book your Demo</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: 2x2 product tiles -->
+      <div class="product-grid" role="grid" aria-label="Products grid">
+        <div class="product-tile active" data-key="doculitz" role="gridcell" tabindex="0">
+          <div class="tile-number">1</div>
+          <div class="tile-title">DocuLitz</div>
+          <div class="tile-sub">Smart document management</div>
+        </div>
+
+        <div class="product-tile" data-key="imagelitz" role="gridcell" tabindex="0">
+          <div class="tile-number">2</div>
+          <div class="tile-title">ImageLitz</div>
+          <div class="tile-sub">AI image ingestion & search</div>
+        </div>
+
+        <div class="product-tile" data-key="litzfilesync" role="gridcell" tabindex="0">
+          <div class="tile-number">3</div>
+          <div class="tile-title">LitzFileSync</div>
+          <div class="tile-sub">Reliable file sync & versioning</div>
+        </div>
+
+        <div class="product-tile" data-key="litzcore" role="gridcell" tabindex="0">
+          <div class="tile-number">4</div>
+          <div class="tile-title">LitzSuite Core</div>
+          <div class="tile-sub">Shared services & admin tools</div>
+        </div>
       </div>
     </div>
   </section>
@@ -175,18 +211,29 @@ const products = {
 const tabs = document.querySelectorAll('#productTabs .tab');
 const pTitle = document.getElementById('p-title');
 const pDesc = document.getElementById('p-desc');
-tabs.forEach(t=>{
-  t.addEventListener('click',()=>{
-    tabs.forEach(x=>x.classList.remove('active'));
-    t.classList.add('active');
-    const key = t.dataset.key;
-    pTitle.textContent = products[key].title;
-    pDesc.textContent = products[key].desc;
-    // scroll to product info on small screens
-    document.getElementById('productInfo').scrollIntoView({behavior:'smooth',block:'start'});
-  });
-  t.addEventListener('keydown',(e)=>{ if(e.key==='Enter'||e.key===' ') t.click(); });
+// remove old tab behavior
+// New tile-based interaction
+const tileEls = document.querySelectorAll('.product-grid .product-tile');
+const learnMoreBtn = document.getElementById('learnMoreBtn');
+
+function activateProduct(key, tileEl){
+  const data = products[key];
+  if(!data) return;
+  pTitle.textContent = data.title;
+  pDesc.textContent = data.desc;
+  if(learnMoreBtn && data.href){ learnMoreBtn.setAttribute('href', data.href); }
+  tileEls.forEach(t => t.classList.remove('active'));
+  if(tileEl) tileEl.classList.add('active');
+}
+
+tileEls.forEach(tile => {
+  tile.addEventListener('click', ()=> { activateProduct(tile.dataset.key, tile); });
+  tile.addEventListener('keydown', (e) => { if(e.key==='Enter' || e.key===' ') { e.preventDefault(); tile.click(); } });
 });
+
+// initialize
+let initial = document.querySelector('.product-grid .product-tile.active');
+if(initial) { activateProduct(initial.dataset.key, initial); } else { const first = document.querySelector('.product-grid .product-tile'); if(first) activateProduct(first.dataset.key, first); }
 
 // Utilities
 const utils = {
