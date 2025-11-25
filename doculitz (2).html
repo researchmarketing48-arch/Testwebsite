@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doculitz — Smart Document Management | Agilitz</title>
+  <style>
+    :root{--navy:#0b1a2b;--muted:#556174;--accent:#0f62fe;--accent-yellow:#f7b500;--card:#fff}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:linear-gradient(135deg,#e6fbf7 0%,#f0fbff 40%,#fff6e6 100%);color:var(--navy)}
+    .container{max-width:1200px;margin:0 auto;padding:20px}
+    .header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,#02112e,#075bd9);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+    .nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:700}
+
+    /* Doculitz styles */
+    .doculitz-section{max-width:1200px;margin:28px auto;padding:32px 20px}
+    .docu-hero{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+    .docu-left{padding:20px}
+    .docu-logo{width:380px;height:auto;margin-bottom:16px}
+    .docu-sub{font-size:18px;font-weight:600;margin:0 0 12px}
+    .docu-lead{color:var(--muted);margin:0 0 20px}
+    .docu-cta{display:inline-block;padding:12px 18px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+    .docu-right{display:flex;justify-content:center}
+    .docu-right img{max-width:100%;height:auto;border-radius:12px;box-shadow:0 8px 30px rgba(12,23,40,0.08)}
+
+    .docu-full{margin-top:32px;padding:48px 20px;background:#fff;text-align:center;border-radius:12px}
+    .docu-full p{max-width:900px;margin:0 auto;font-size:20px;line-height:1.35;font-weight:500}
+
+    /* centered feature boxes */
+    .center-features{display:flex;justify-content:center;margin-top:28px}
+    .feature-grid{display:flex;gap:20px}
+    .feature{background:#f8fbff;padding:22px;border-radius:12px;min-width:260px;box-shadow:0 6px 18px rgba(12,23,40,0.04);text-align:left}
+    .feature h4{margin:0 0 8px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    .at-a-glance{margin-top:40px;text-align:center}
+    .carousel{display:flex;gap:12px;overflow:hidden;justify-content:center;align-items:center;padding:18px}
+    .carousel img{max-width:220px;border-radius:10px;box-shadow:0 8px 20px rgba(12,23,40,0.06)}
+
+    /* split features + image */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin-top:36px}
+    .features-list{padding:20px}
+    .features-list h3{margin-top:0}
+    .features-list ul{color:var(--muted);padding-left:18px}
+    .split img{max-width:100%;border-radius:12px}
+
+    /* Trusted across teams */
+    .trusted{margin-top:40px;text-align:center}
+    .trusted-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+    .trusted-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(12,23,40,0.04)}
+
+    .smartline{margin-top:36px;text-align:center;font-weight:600;font-size:18px}
+
+    /* CTA full-width blue box */
+    .cta-blue{margin-top:40px;background:linear-gradient(90deg,#0f62fe,#075bd9);color:#fff;padding:36px;border-radius:12px;text-align:center}
+    .cta-blue h3{margin:0 0 8px}
+    .cta-blue p{margin:0 0 16px;color:rgba(255,255,255,0.95)}
+    .cta-blue .btn{background:#fff;color:#075bd9;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;border:none}
+
+    @media (max-width:900px){
+      .docu-hero,.split{grid-template-columns:1fr}
+      .feature-grid{flex-direction:column;align-items:center}
+      .carousel{overflow:auto}
+      .trusted-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand"><div class="logo">A</div><div><div style="font-weight:800">Agilitz</div><div style="font-size:13px;color:var(--muted)">LitzSuite — AI for Dynamics 365</div></div></div>
+      <nav class="nav"><a href="/index.html">Home</a><a href="/index.html#products">Products</a><a href="/index.html#utilities">Utilities</a><a href="/index.html#videos">Videos</a></nav>
+    </header>
+
+    <!-- Doculitz detailed section -->
+    <section class="doculitz-section" id="doculitz">
+
+      <div class="docu-hero">
+        <div class="docu-left">
+          <img class="docu-logo" src="doculitz logo.png" alt="Doculitz logo" />
+          <h2 class="docu-sub">Smart Document Management Inside Dynamics 365</h2>
+          <p class="docu-lead">Doculitz brings document intelligence right into your CRM — secure, contextual, and fast.</p>
+          <a href="/Presentation3.pptx" class="docu-cta" download>Book your demo now</a>
+        </div>
+
+        <div class="docu-right">
+          <img src="doculitz menu.png" alt="Doculitz preview" />
+        </div>
+      </div>
+
+      <div class="docu-full">
+        <p>
+          Doculitz is an AI-powered solution for document intelligence—built natively for Microsoft Dynamics 365. It transforms how you upload, organize, and find documents linked to CRM records—fast, secure, and context-aware.
+        </p>
+      </div>
+
+      <!-- Centered feature boxes covering screen -->
+      <div class="center-features" aria-hidden="false">
+        <div class="feature-grid" role="list">
+          <div class="feature">
+            <h4>Smart Sync & Connectivity</h4>
+            <p>Automatic file sync across CRM records<br/>Seamless integration with SharePoint</p>
+          </div>
+          <div class="feature">
+            <h4>Secure & Organized Storage</h4>
+            <p>Centralized, secure document storage<br/>Controlled access for better governance</p>
+          </div>
+          <div class="feature">
+            <h4>Boost Productivity & Accuracy</h4>
+            <p>Version management to track updates<br/>Easy upload, search, and retrieval<br/>Reduces manual effort and keeps teams aligned</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doculitz at a glance + carousel -->
+      <div class="at-a-glance">
+        <h3>Doculitz at a glance</h3>
+        <div class="carousel" role="list">
+          <img src="doculitz menu.png" alt="carousel-1" />
+          <img src="duplicate file.png" alt="carousel-2" />
+          <img src="files.png" alt="carousel-3" />
+          <img src="upload file.png" alt="carousel-4" />
+        </div>
+      </div>
+
+      <!-- Features (left) and image (right) covering full screen -->
+      <div class="split">
+        <div class="features-list">
+          <h3>Features</h3>
+          <ul>
+            <li><strong>AI-Powered Search:</strong> Instantly locate documents using full-text search with Azure AI.</li>
+            <li><strong>Support Agents linking case files:</strong> Support agents can attach screenshots, reports, and evidence to cases instantly, making issue resolution faster and more transparent.</li>
+            <li><strong>Contextual Binding:</strong> Keep files tied to specific CRM records (Accounts, Cases, etc.).</li>
+            <li><strong>Azure Cloud Storage:</strong> Secure, scalable, and fully integrated with Azure Blob.</li>
+            <li><strong>Duplicate Detection:</strong> Eliminate redundant uploads for a cleaner system.</li>
+            <li><strong>Seamless UX:</strong> Upload, view, and manage without ever leaving Dynamics.</li>
+          </ul>
+        </div>
+        <div class="features-image">
+          <img src="setup,upload preview manage.png" alt="features image" />
+        </div>
+      </div>
+
+      <!-- Trusted across teams -->
+      <div class="trusted">
+        <h3>Trusted across teams</h3>
+        <div class="trusted-grid">
+          <div class="trusted-card">
+            <h4>Sales Teams uploading contracts</h4>
+            <p>Sales teams can quickly upload and manage customer contracts directly in CRM, ensuring all documentation stays organized and accessible.</p>
+          </div>
+          <div class="trusted-card">
+            <h4>Support Agents</h4>
+            <p>Support agents can attach case files, screenshots and reports to records for faster, evidence-backed resolution.</p>
+          </div>
+          <div class="trusted-card">
+            <h4>Compliance teams needing traceability</h4>
+            <p>Compliance teams get full document traceability with version history and controlled access, helping them meet audit and regulatory requirements.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="smartline">Make Documents Work Smarter<br/>No extra apps. No extra clicks. Just intelligent document management—right where your data lives.</div>
+
+      <!-- CTA blue box -->
+      <div class="cta-blue">
+        <h3>Add Doculitz to Dynamics 365</h3>
+        <p>Talk to our team or book a demo today to see how Doculitz transforms your workflow.</p>
+        <a class="btn" href="/Presentation3.pptx" download>Book your demo now</a>
+      </div>
+
+    </section>
+
+    <footer class="footer">&copy; Agilitz — LitzSuite</footer>
+  </div>
+</body>
+</html>
